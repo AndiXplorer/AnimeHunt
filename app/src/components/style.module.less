@@ -1,0 +1,77 @@
+.content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url('../assets/AnimeBg.png');
+
+    .searchBar {
+        width: 50%;
+        text-align: center;
+
+        img {
+            margin-bottom: 20px;
+            width: 30vw;
+        }
+
+        .inputWrapper {
+            position: relative;
+            width: 100%;
+
+            input {
+                padding: 15px;
+                padding-left: 50px;
+                width: 100%;
+                border: none;
+                border-radius: 30px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+                font-size: 1.2rem;
+                outline: none;
+                font-family: var(--font-family)
+            }
+
+            .icon {
+                position: absolute;
+                left: 15px;
+                top: 50%;
+                transform: translateY(-50%);
+                font-size: 1.4rem;
+                color: #aaa;
+            }
+        }
+    }
+}
+
+.footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    color: white;
+    font-family: var(--font-family);
+    font-size: 1.4rem;
+
+    .made {
+        p {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+
+            img {
+                margin: 0 10px;
+            }
+        }
+    }
+
+    .support {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+
+        p {
+            margin: 15px;
+        }
+    }
+}

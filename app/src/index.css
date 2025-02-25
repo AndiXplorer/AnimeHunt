@@ -1,7 +1,10 @@
 :root {
   --bg-color: rgb(51, 51, 51);
+  --font-family: 'Julee', serif;
 }
 
 body {
   background-color: var(--bg-color);
+  margin: 0;
+  padding: 0;
 }
