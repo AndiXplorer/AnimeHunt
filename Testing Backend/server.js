@@ -3,6 +3,7 @@ import StealthPlugin from 'puppeteer-extra-plugin-stealth';
 import AdblockerPlugin from 'puppeteer-extra-plugin-adblocker';
 import { setTimeout } from 'node:timers/promises';
 import express from 'express';
+import cors from 'cors';
 
 // adblocker ni plugin edhe stealth per me menjaju botin qaty
 puppeteer.use(StealthPlugin());
@@ -10,6 +11,7 @@ puppeteer.use(AdblockerPlugin({ blockTrackers: true }));
 
 const app = express();
 app.use(express.json())
+app.use(cors());
 const port = 5000;
 
 //post method
