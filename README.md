@@ -1,12 +1,10 @@
 # AnimeHunt 🎯🔍
 
-**AnimeHunt** is an intelligent anime search engine that scours the web for streaming and download links based on user queries. Powered by **Puppeteer, AI, and web scraping**, it finds the best sources for anime episodes and movies, allowing users to download them with ease.
+**AnimeHunt** is an educational project designed to demonstrate web automation and search capabilities using**Puppeteer, and web scraping**, it finds the best sources for anime episodes and movies, allowing users to download them with ease.
 
 ## 🚀 Features
 
-- 🔎 **Smart search** for anime episodes (e.g., *"Solo Leveling S2E2"*)
 - 🤖 **Automated web scraping** with Puppeteer
-- 🧠 **AI-enhanced filtering** for relevant results
 - 📥 **Direct video link extraction** & download options
 - ⚡ **Express.js backend** for search queries
 
