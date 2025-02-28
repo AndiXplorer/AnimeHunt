@@ -1,6 +1,6 @@
 import puppeteer from 'puppeteer-extra';
 import StealthPlugin from 'puppeteer-extra-plugin-stealth';
-import cors from 'cors'; 
+import cors from 'cors';
 import AdblockerPlugin from 'puppeteer-extra-plugin-adblocker';
 import { setTimeout } from 'node:timers/promises';
 import express from 'express';
@@ -69,25 +69,16 @@ app.post('/extract', async (req, res) => {
         });
 
         // Open the URL received in the POST request
-        console.log("Opening:", url);
         await page.goto(url, { waitUntil: "networkidle2" });
-
-        console.log("Waiting for 5 seconds...");
-        await setTimeout(5000);
         await page.mouse.move(200, 300);
         await page.keyboard.press("ArrowDown");
-        console.log("Waiting for 2 seconds...");
-        await setTimeout(2000);
-
-        console.log("Page Loaded Successfully!");
-        console.log("Captured Network Traffic:", result);
 
         await browser.close();
 
         res.json(result);
     })().catch(error => {
         console.error("Error:", error);
-        res.status(500).json({ error: error.message });
+        res.status(500).json({ error: "Hmm, that URL doesn't seem to be working. Please double-check and try again." });
     });
 });
 
