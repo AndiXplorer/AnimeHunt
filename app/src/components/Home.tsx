@@ -20,6 +20,7 @@ export const Home = () => {
   const [loader, setLoader] = useState<boolean>(false);
   const [readyDownload, setReadyDownload] = useState<boolean>(false);
   const [downloadUrls, setDownloadUrls] = useState<string[]>([]);
+  const [error, setError] = useState<string>('');
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
     setUrl(e.target.value);
@@ -36,6 +37,8 @@ export const Home = () => {
           { url },
         );
 
+        console.log('respones', response);
+
         if (response.data) {
           const urls = response.data.map(
             (item: { request_url: string }) => item.request_url,
@@ -47,7 +50,7 @@ export const Home = () => {
         setReadyDownload(true);
       } catch (error) {
         const err = error as ErrorResponse;
-        console.error('Error:', err.response ? err.response.data : err.message);
+        setError(err.response?.data.error);
         setLoader(false);
       }
     }
@@ -75,6 +78,8 @@ export const Home = () => {
           </div>
         </div>
       )}
+
+      {error && <p className={styles.error}>{error}</p>}
 
       {readyDownload && (
         <div className={styles.downloadButtons}>
