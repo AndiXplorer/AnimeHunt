@@ -15,7 +15,11 @@ export const Footer = () => {
       </div>
       <div className={styles.support}>
         <p>Support</p>
-        <p>Contribute</p>
+        <p>
+          <a href="https://github.com/AndiXplorer/AnimeHunt" target="_blank">
+            Contribute
+          </a>
+        </p>
       </div>
     </div>
   );
