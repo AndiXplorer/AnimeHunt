@@ -1,8 +1,9 @@
 import styles from './style.module.less';
 import logo from '../assets/AnimeHunt logo.svg';
 import { FaDownload, FaSearch } from 'react-icons/fa';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import axios from 'axios';
+import { Sharingan } from './Sharingan/Sharingan';
 
 interface ApiResponse {
   data: any;
@@ -21,6 +22,17 @@ export const Home = () => {
   const [readyDownload, setReadyDownload] = useState<boolean>(false);
   const [downloadUrls, setDownloadUrls] = useState<string[]>([]);
   const [error, setError] = useState<string>('');
+  const [showSharingan, setShowSharingan] = useState<boolean>(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      if (!loader) {
+        setShowSharingan(false);
+      }
+    }, 2000);
+
+    return () => clearTimeout(timer);
+  }, [loader]);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
     setUrl(e.target.value);
@@ -55,6 +67,10 @@ export const Home = () => {
       }
     }
   };
+
+  if (showSharingan) {
+    return <Sharingan />;
+  }
 
   return (
     <div className={styles.content}>
