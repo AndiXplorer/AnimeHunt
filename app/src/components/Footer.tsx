@@ -1,8 +1,23 @@
 import styles from './style.module.less';
 import coffee from '../assets/coffee.svg';
 import heart from '../assets/Heart.svg';
+import { useEffect, useState } from 'react';
 
 export const Footer = () => {
+  const [showFooter, setShowFooter] = useState<boolean>(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowFooter(true);
+    }, 2000);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (!showFooter) {
+    return null;
+  }
+
   return (
     <div className={styles.footer}>
       <div className={styles.made}>
